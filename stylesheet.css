@@ -1,0 +1,40 @@
+#main {
+	border: 2px solid; 
+	background-color:  #FCFAEB; 
+	padding: 1%;
+	/*width: 50%;
+	margin: auto;*/
+}
+
+#response1C {
+	text-align:center;
+	/*width:100%;*/
+}
+
+#SignButton {
+	position: relative; 
+	left: 40%;
+}
+
+#BranchDataTable {
+	
+	border: 1px solid black;
+	border-collapse: collapse;
+	font-size: 1.3em;
+}
+
+#BranchDataTable td, th{
+	
+	padding: 6px;
+}
+
+
+#actList .ui-button {
+	display: block;
+	margin: 3px;
+	width: 50%;
+}
+
+#email {
+	width: 20em;
+}
