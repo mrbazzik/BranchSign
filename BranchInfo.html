@@ -1,118 +1,48 @@
-﻿<html xmlns="http:www.w3.org/1999/xhtml">
-<head>
+<!DOCTYPE html>
+﻿<html>
+  <head>
 
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link type="text/css" href="./jquery/jquery-ui.min.css" rel="Stylesheet" />
-<link type="text/css" rel="stylesheet" href="stylesheet.css">
-<title>Подпись партии</title>
+    <link type="text/css" href="./jquery/jquery-ui.min.css" rel="Stylesheet" />
+    <link type="text/css" rel="stylesheet" href="stylesheet.css">
+    <title>Подпись партии</title>
 
-<SCRIPT type="text/javascript" src="https//:github.com/douglascrockford/JSON-js/blob/master/json2.js"></SCRIPT>
-<script type="text/javascript" src="./jquery/jquery-1.11.1.min.js"> </script>
-<script type="text/javascript" src="./jquery/jquery-ui.min.js"> </script>
-<script type="text/javascript" src="BranchInfo.js"> </script>
+    <SCRIPT type="text/javascript" src="json2.js"></SCRIPT>
+    <script type="text/javascript" src="./jquery/jquery-1.11.1.min.js"> </script>
+    <script type="text/javascript" src="./jquery/jquery-ui.min.js"> </script>
+    <script type="text/javascript" src="BranchInfo.js"> </script>
+    <script type="text/javascript" src="Main.js"> </script>
 
-<script>
-window.onload = function () {
-	
-	$("#actList").buttonset();
-	$("#dd").accordion({ collapsible: true , heightStyle: "content" });
-	$("#email").selectmenu();
-	$("#SignButton").button();
-	$("#solution").buttonset();
-	$("#SignButton").click(SignBranch);
-	$("#main").position("center","center",document);
-	var get = decodeURI(location.search);
-	get = get.replace(/%3A/g,":");
-	get = get.replace(/%2C/g,",");
-	get = get.replace(/%40/g,"@");
-	get = get.replace(/\+/g," ");
-
-
-	var param = new Array();
-	  
-	tmp = (get.substr(1)).split('&');
-	for(var i=0; i < tmp.length; i++)   
-	{   
-	 tmp2 = tmp[i].split('=');
-	 param[tmp2[0]] = tmp2[1];
-	}   
-
-
-	param["emails"] = JSON.parse(param["emails"]);
-	
-	BranchInfo();
-	
-	function BranchInfo()
-	{
-
-	 CheckBranch(param["uid"], param["branch"]);
-
-	 var elem = $("#email");
-	 var emails = param["emails"].Emails;
-	 
-	 for(var i = 0; i<=emails.length-1; i++)
-	 {
-	  var emaili = emails[i];
-	  elem.append("<option value="+emaili+">"+emaili+"</option>");
-	  
-	 } 
-
-	if(emails.length == 1) elem.val(emails[0]);
-
-	}
-	
-	function SignBranch()
-	{
-	 
-	
-	 var valu = $("#solution .ui-state-active");
-	 
-	var loptions = [];
-	
-	$("#actList .ui-state-active span").each(function(indx, element){
-		loptions.push(element.innerHTML);
-	});
-
-	
-	var obj = {"actions": loptions};
-	 if (!valu) alert("Укажите решение!");
-	 else MakeSign(param["uid"], email.value, valu.text().replace("_", " "), comment.value, JSON.stringify(obj));
-	}
-
-}
-
-
-
-</script>
-
-</head>
+  </head>
 
 <body>
 	<div id="main" class="ui-widget">
 		<h2 id="response1C">Запрос данных...</h2>
-
 		<table border="1" id="BranchDataTable"></table>
-
-		<div><h4>Решение</h4> 
+		<div>
+      <h4>Решение</h4>
 			<div id="solution">
-			<input type="radio" id="Разрешаю" name="solut"><label for="Разрешаю">Разрешаю</label>
-			<input type="radio" id="Не_разрешаю" name="solut"><label for="Не_разрешаю">Не разрешаю</label>
-			
-		</div></div>
-
-		<div><h4>Комментарий:</h4> 
-		<p><textarea id="comment" cols=50 rows=5 class="ui-corner-all"></textarea></p>
-
-		<div id="dd"><h3>Дальнейшие действия:</h3>
-			<div id="actList">
-			</div>
-		</div>
-
-		<div><h4>Email подписывающего</h4> <select id="email" value=""></select></div>
-
-		<div><h4>Пароль </h4><input type="password" id="Password" class="ui-corner-all"></div>
-
-		<button id="SignButton">Подписать</Button>
-	</div>
+			     <input type="radio" id="Разрешаю" name="solut"><label for="Разрешаю">Разрешаю</label>
+			     <input type="radio" id="Не_разрешаю" name="solut"><label for="Не_разрешаю">Не разрешаю</label>
+		  </div>
+    </div>
+		<div>
+      <h4>Комментарий:</h4>
+		  <p><textarea id="comment" cols=50 rows=5 class="ui-corner-all"></textarea></p>
+    </div>
+    <div id="dd">
+      <h3>Дальнейшие действия:</h3>
+		     <div id="actList">
+		     </div>
+	  </div>
+	  <div>
+      <h4>Email подписывающего</h4>
+      <select id="email" value=""></select>
+    </div>
+    <div>
+      <h4>Пароль </h4>
+      <input type="password" id="Password" class="ui-corner-all">
+    </div>
+	  <button id="SignButton">Подписать</Button>
+  </div>
 </body>
 </html>

@@ -1,4 +1,7 @@
-﻿function ConnectionObject()
+var BranchSign = BranchSign || {};﻿
+
+(function(){
+function ConnectionObject()
 {
 	CO = new Object();
 
@@ -9,7 +12,7 @@
 	return CO;
 }
 
-function CheckBranch(UID, Branch) {
+BranchSign.CheckBranch = function (UID, Branch) {
 
 	XMLHTTP = new XMLHttpRequest();
 
@@ -73,7 +76,7 @@ function WhenAnsweringCheckBranch(XMLHTTP, Branch)
 			Result = "Партия "+Branch+" подписана пользователем "+User+" "+ uDate;
 
 			if(Comment!=="NULL") $("#comment").html(Comment);
-			console.log('#'+Solution.replace(" ","_"));
+			
 			var $sol = $('#'+Solution.replace(" ","_"));
 			$sol.attr("checked", "checked");
 			$sol.button("refresh");
@@ -118,7 +121,7 @@ function WhenAnsweringCheckBranch(XMLHTTP, Branch)
 
  				}
 			$("#actList").buttonset("refresh");
-			
+
 		}
 
 	}
@@ -126,7 +129,7 @@ function WhenAnsweringCheckBranch(XMLHTTP, Branch)
 
 }
 
-function MakeSign(UID, Email, Solution, Comment, Actions) {
+BranchSign.MakeSign = function (UID, Email, Solution, Comment, Actions) {
 
 
 	XMLHTTP = new XMLHttpRequest();
@@ -185,3 +188,4 @@ function WhenAnsweringMakeSign(XMLHTTP)
 	}
 
 }
+})()
