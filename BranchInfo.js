@@ -76,7 +76,7 @@ function WhenAnsweringCheckBranch(XMLHTTP, Branch)
 			Result = "Партия "+Branch+" подписана пользователем "+User+" "+ uDate;
 
 			if(Comment!=="NULL") $("#comment").html(Comment);
-			
+
 			var $sol = $('#'+Solution.replace(" ","_"));
 			$sol.attr("checked", "checked");
 			$sol.button("refresh");
@@ -100,7 +100,7 @@ function WhenAnsweringCheckBranch(XMLHTTP, Branch)
 
 			$("#BranchDataTable").html("<caption><h4>Данные партии</h4></caption><tr><th>Параметр</th><th>Значение</th><th>Уровень</th><th>Дата снятия</th><th>План ОБ</th></tr>");
 			for(var i=0; i<obj.length; i++)
-				$("#BranchDataTable").html($("#BranchDataTable").html()+"<tr><td>"+obj[i].Param+"</td><td>"+((obj[i].Val===null)?"":obj[i].Val)+"</td><td>"+obj[i].Level+"</td><td>"+obj[i].Date.replace("T"," ")+"</td><td>"+obj[i].Plan+"</td></tr>");
+				$("#BranchDataTable").html($("#BranchDataTable").html()+"<tr><td>"+obj[i].Param+"</td><td>"+((obj[i].Val===null)?"":obj[i].Val)+"</td><td>"+obj[i].Level+"</td><td>"+obj[i].Date.replace("T","<br/>")+"</td><td>"+obj[i].Plan+"</td></tr>");
 		}
 
 

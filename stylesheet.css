@@ -1,6 +1,6 @@
 #main {
-	border: 2px solid; 
-	background-color:  #FCFAEB; 
+	border: 2px solid;
+	background-color:  #FCFAEB;
 	padding: 1%;
 	/*width: 50%;
 	margin: auto;*/
@@ -12,19 +12,20 @@
 }
 
 #SignButton {
-	position: relative; 
+	position: relative;
 	left: 40%;
 }
 
 #BranchDataTable {
-	
+
 	border: 1px solid black;
 	border-collapse: collapse;
 	font-size: 1.3em;
+
 }
 
 #BranchDataTable td, th{
-	
+
 	padding: 6px;
 }
 
