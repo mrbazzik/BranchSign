@@ -1,22 +1,17 @@
 var BranchSign = BranchSign || {};﻿
 
 (function(){
-function ConnectionObject()
-{
-	CO = new Object();
-
-	CO.ConString = 'http://localhost/TestSign/ws/BranchSign.1cws';
-	CO.Login = "SignUser";
-	CO.Password = "789";
-
-	return CO;
+var CO = {
+	ConString = 'http://localhost/TestSign/ws/BranchSign.1cws';
+	Login = "SignUser";
+	Password = "789";
 }
 
 BranchSign.CheckBranch = function (UID, Branch) {
 
 	XMLHTTP = new XMLHttpRequest();
 
-	CO = ConnectionObject();
+
 
 	XMLHTTP.open('POST', CO.ConString, true, CO.Login, CO.Password);
 	XMLHTTP.onreadystatechange = function() {WhenAnsweringCheckBranch(XMLHTTP, Branch)};
